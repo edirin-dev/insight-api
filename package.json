@@ -2,7 +2,7 @@
   "name": "@dashevo/insight-api",
   "description": "A Vkax blockchain REST and WebSocket API Service",
   "version": "3.1.2",
-  "repository": "git://github.com//insight-api.git",
+  "repository": "git://github.com/michael-EA/insight-api.git",
   "contributors": [
     {
       "name": "Gustavo Cortez",
