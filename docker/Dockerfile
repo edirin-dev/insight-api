@@ -1,17 +1,17 @@
-FROM node:8-alpine
+FROM node:16-alpine
 
 RUN apk add --update --no-cache \
                             git \
                             libzmq \
                             zeromq-dev \
-                            python \
+                            python3 \
                             make \
                             g++
 
 WORKDIR /insight
 
 # Copy dashcore-node
-RUN git clone --branch master --single-branch --depth 1 https://github.com/dashevo/dashcore-node.git .
+RUN git clone --branch master --single-branch --depth 1 https://github.com/michael-EA/dashcore-node.git .
 
 # Copy config file
 COPY dashcore-node.json .
@@ -24,7 +24,7 @@ RUN npm ci
 # Install Insight API module
 RUN bin/dashcore-node install @dashevo/insight-api@${VERSION}
 
-FROM node:8-alpine
+FROM node:16-alpine
 
 LABEL maintainer="Dash Developers <dev@dash.org>"
 LABEL description="Dockerised Insight API"
